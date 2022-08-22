@@ -1,4 +1,4 @@
-%same sa HW2.mlx, but in .m so it can be viewed on github.
+%same as HW2.mlx, but in .m so it can be viewed on github.
 %% 1
 clear,clc,close all
 syms V1 V2 I0 Ia Ib Ic Id V0 Ra Cb Cc Rd s R C f
