@@ -1,0 +1,20 @@
+clear,clc,close all
+syms V1 Vn vp V2 V3 va vb vc R r f M1 M2 M3 ma mb mc Vout I1 I2 I3 ia ib ic IR io
+eqn(1) = V1-Vn==I1*R/M1;
+eqn(2) = V2-Vn==I2*R/M2;
+eqn(3) = V3-Vn==I3*R/M3;
+eqn(4) = I1+I2+I3==IR;
+eqn(5) = Vn-Vout==IR*R;
+eqn(6) = va-vp==ia*r/ma;
+eqn(7) = vb-vp==ib*r/mb;
+eqn(8) = vc-vp==ic*r/mc;
+eqn(9) = ia+ib+ic==io;
+eqn(10) = vp==io*r/abs(f);
+eqn(11) = Vn==vp;
+eqn(12) = f==ma+mb+mc-M1-M2-M3-1;
+eqn(13) = f<0;
+temp = "eqn(1)";
+for i=2:5 
+    temp = temp+",eqn("+num2str(i)+")";
+end
+eval("sol = solve("+temp+",Vout,Vn,vp,R,r,f,I1)")
